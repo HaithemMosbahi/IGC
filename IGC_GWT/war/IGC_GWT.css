@@ -10,6 +10,44 @@ h1 {
   text-align: center;
 }
 
+.pad-text{
+	font-family: monospace;
+	font-size: 14px;
+	color: blue;
+}
+
+.northStyle
+{
+	border: none;
+}
+
+.centerImg
+{
+	display: block;
+    margin-left: auto;
+    margin-right: aut
+}
+
+.imgStyle
+{
+	width: 50px;
+	height: 50px;
+	margin-top: 10%;
+	margin-right: 30%;
+}
+.panelProg
+{
+	background-color: white;
+}
+
+.headerStyle
+{   font-size: 60px;
+	font-family: sans-serif;
+	color: red;
+	margin-left: 30%;
+}
+
+
 .sendButton {
   display: block;
   font-size: 16pt;
