@@ -15,37 +15,37 @@ public class BallGroup {
     ArrayList<Ball> ballsArrayList = new ArrayList<Ball>(0);
     
     // init balls (values from Google's homepag
- /*   ballsArrayList.add(new Ball(100, 100, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(88, 95, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(76, 94, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(68, 100, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(58, 110, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(57, 125, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(64, 136, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(76, 145, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(88, 145, 0, 2, "#000000"));
-    ballsArrayList.add(new Ball(100, 142, 0, 2, "#000000"));
+ /*   ballsArrayList.add(new Ball(100, 100, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(88, 95, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(76, 94, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(68, 100, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(58, 110, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(57, 125, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(64, 136, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(76, 145, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(88, 145, 0, 2, "#0000000"));
+    ballsArrayList.add(new Ball(100, 142, 0, 2, "#0000000"));
     
-    ballsArrayList.add(new Ball(120, 100, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(120, 110, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(120, 120, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(120, 130, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(120, 140, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(130, 140, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(140, 140, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(150, 140, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(120, 100, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(120, 110, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(120, 120, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(120, 130, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(120, 140, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(130, 140, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(140, 140, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(150, 140, 0, 4, "#0000000"));
     
-    ballsArrayList.add(new Ball(170, 100, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(170, 110, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(170, 120, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(170, 130, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(170, 140, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(182, 140, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(195, 140, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(195, 130, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(195, 120, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(195, 110, 0, 4, "#000000"));
-    ballsArrayList.add(new Ball(195, 100, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(170, 100, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(170, 110, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(170, 120, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(170, 130, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(170, 140, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(182, 140, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(195, 140, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(195, 130, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(195, 120, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(195, 110, 0, 4, "#0000000"));
+    ballsArrayList.add(new Ball(195, 100, 0, 4, "#0000000"));
  
     ballsArrayList.add(new Ball(100, 200, 0, 10, "#ed9d33"));
     ballsArrayList.add(new Ball(100, 200, 0, 10, "#ed9d33"));
@@ -56,64 +56,64 @@ public class BallGroup {
    
     
     // I
-    ballsArrayList.add(new Ball(110, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(110, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(110, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(110, 18, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(110, 24, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(110, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(110, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(110, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(110, 18, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(110, 24, 0, 4, "#000000"));
     
     // N
-    ballsArrayList.add(new Ball(125, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 18, 0,4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 24, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(130, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(135, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(140, 18, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(145, 24, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(145, 18, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(145, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(145, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(145, 0, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(125, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(125, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(125, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(125, 18, 0,4, "#000000"));
+    ballsArrayList.add(new Ball(125, 24, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(130, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(135, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(140, 18, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(145, 24, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(145, 18, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(145, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(145, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(145, 0, 0, 4, "#000000"));
     
     //S
-    ballsArrayList.add(new Ball(172, 2, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(166, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(160, 2, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(158, 5, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(160, 10, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(167, 14, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(172, 16, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(170, 21, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(165, 24, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(160, 22, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(156, 20, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(172, 2, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(166, 0, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(160, 2, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(158, 5, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(160, 10, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(167, 14, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(172, 16, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(170, 21, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(165, 24, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(160, 22, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(156, 20, 0, 3.5, "#000000"));
     
     
     //A
-    ballsArrayList.add(new Ball(196, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(192, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(200, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(188, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(192, 16, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(200, 16, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(204, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(184, 18, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(208, 18, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(180, 24, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(212, 24, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(196, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(192, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(200, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(188, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(192, 16, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(200, 16, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(204, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(184, 18, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(208, 18, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(180, 24, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(212, 24, 0, 4, "#000000"));
 
     //T
-    ballsArrayList.add(new Ball(230, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(225, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(235, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(220, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(240, 0, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(230, 6, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(230, 12, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(230, 18, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(230, 24, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(230, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(225, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(235, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(220, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(240, 0, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(230, 6, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(230, 12, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(230, 18, 0, 4, "#000000"));
+    ballsArrayList.add(new Ball(230, 24, 0, 4, "#000000"));
     
     //Google
   ballsArrayList.add(new Ball(202, 83, 0, 9, "#ed9d33"));
@@ -183,62 +183,65 @@ public class BallGroup {
     ballsArrayList.add(new Ball(232, 98, 0, 5, "#4b78f1"));
     
     // C
-    ballsArrayList.add(new Ball(110, 110, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(105, 105, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(100, 105, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(95, 110, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(92, 115, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(92, 120, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(95, 125, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(100, 129, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(105, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(110, 124, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(132, 110, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(127, 105, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(122, 105, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(117, 110, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(114, 115, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(114, 120, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(117, 125, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(122, 129, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(127, 128, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(132, 124, 0, 3.5, "#000000"));
     
     // L
-    ballsArrayList.add(new Ball(125, 105, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 111, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 117, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 122, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(125, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(130, 128, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(145, 105, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(145, 111, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(145, 117, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(145, 122, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(147, 128, 0, 3.5, "#000000"));
+    
+   /* ballsArrayList.add(new Ball(130, 128, 0, 4, "#f7b326"));
     ballsArrayList.add(new Ball(135, 128, 0, 4, "#f7b326"));
     ballsArrayList.add(new Ball(140, 128, 0, 4, "#f7b326"));
+    */
     
     // U
-    ballsArrayList.add(new Ball(155, 105, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(155, 111, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(155, 117, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(155, 122, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(155, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(160, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(165, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(170, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(170, 122, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(170, 117, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(170, 111, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(170, 105, 0, 4, "#f7b326"));
+    //ballsArrayList.add(new Ball(155, 105, 0, 4, "#f7b326"));
+    //ballsArrayList.add(new Ball(155, 111, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(160, 117, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(160, 122, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(160, 128, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(165, 128, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(170, 128, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(175, 128, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(175, 122, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(175, 117, 0, 3.5, "#000000"));
+   // ballsArrayList.add(new Ball(170, 111, 0, 4, "#f7b326"));
+    //ballsArrayList.add(new Ball(170, 105, 0, 4, "#f7b326"));
     
     // B
     
-    ballsArrayList.add(new Ball(185, 105, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(185, 111, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(185, 117, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(185, 122, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(185, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(190, 104, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(188, 105, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(188, 111, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(188, 117, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(188, 122, 0, 3.5, "#000000"));
+    ballsArrayList.add(new Ball(188, 128, 0, 3.5, "#000000"));
+   /* ballsArrayList.add(new Ball(190, 104, 0, 4, "#f7b326"));
     ballsArrayList.add(new Ball(195, 103, 0, 4, "#f7b326"));
     ballsArrayList.add(new Ball(198, 104, 0, 4, "#f7b326"));
     ballsArrayList.add(new Ball(203, 107, 0, 4, "#f7b326"));
     ballsArrayList.add(new Ball(203, 111, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(203, 114, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(198, 118, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(192, 118, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(203, 122, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(203, 125, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(203, 128, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(198, 131, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(195, 131, 0, 4, "#f7b326"));
-    ballsArrayList.add(new Ball(190, 131, 0, 4, "#f7b326"));
+    ballsArrayList.add(new Ball(203, 114, 0, 4, "#f7b326"));*/
+    ballsArrayList.add(new Ball(199, 118, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(193, 118, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(202, 122, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(202, 125, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(200, 128, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(195, 128, 0, 3, "#000000"));
+    ballsArrayList.add(new Ball(190, 128, 0, 3, "#000000"));
+    
+   
 
    
   

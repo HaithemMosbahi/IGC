@@ -2,9 +2,6 @@ package com.igc.client.chart;
 
 import java.util.List;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
-
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
@@ -46,9 +43,7 @@ import com.sencha.gxt.widget.core.client.event.ExpandEvent.ExpandHandler;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.toolbar.ToolBar;
  
-public class MusicBarChart implements IsWidget {
-	
-	private AllData allData=new AllData();
+public class MusicBarChart implements IsWidget{
  
   public interface DataPropertyAccess extends PropertyAccess<Data> {
     ValueProvider<Data, Integer> data1();
@@ -63,9 +58,9 @@ public class MusicBarChart implements IsWidget {
  
   @Override
   public Widget asWidget() {
-	  List<Data> allmusic=AllData.allMusic();
+	final AllData alldata=new AllData();
     final ListStore<Data> store = new ListStore<Data>(dataAccess.nameKey());
-    store.addAll(allmusic);
+    store.addAll(alldata.getallMusic());
  
     final Chart<Data> chart = new Chart<Data>();
     chart.setStore(store);
@@ -79,13 +74,13 @@ public class MusicBarChart implements IsWidget {
     axis.setTitleConfig(title);
     axis.setDisplayGrid(true);
     axis.setMinimum(0);
-    axis.setMaximum(maxData(allmusic)+10);
+    axis.setMaximum((maxData(alldata.getallMusic()))+10);
     chart.addAxis(axis);
  
     CategoryAxis<Data, String> catAxis = new CategoryAxis<Data, String>();
     catAxis.setPosition(Position.LEFT);
     catAxis.setField(dataAccess.name());
-    title = new TextSprite("Genre of Music");
+    title = new TextSprite("Month of the Year");
     title.setFontSize(18);
     catAxis.setTitleConfig(title);
     chart.addAxis(catAxis);
@@ -111,7 +106,16 @@ public class MusicBarChart implements IsWidget {
       }
     });
  
-    
+    TextButton regenerate = new TextButton("Reload Data");
+    regenerate.addSelectHandler(new SelectHandler() {
+      @Override
+      public void onSelect(SelectEvent event) {
+        store.clear();
+        store.addAll(alldata.getallMusic());
+        chart.redrawChart();
+      }
+    });
+ 
     ToggleButton animation = new ToggleButton("Animate");
     animation.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
       @Override
@@ -131,6 +135,7 @@ public class MusicBarChart implements IsWidget {
     shadow.setValue(true);
  
     ToolBar toolBar = new ToolBar();
+    toolBar.add(regenerate);
     toolBar.add(animation);
     toolBar.add(shadow);
  
@@ -143,7 +148,7 @@ public class MusicBarChart implements IsWidget {
  
     final Resizable resize = new Resizable(panel, Dir.E, Dir.SE, Dir.S);
     resize.setMinHeight(400);
-    resize.setMinWidth(600);
+    resize.setMinWidth(400);
  
     panel.addExpandHandler(new ExpandHandler() {
       @Override
@@ -176,7 +181,7 @@ public class MusicBarChart implements IsWidget {
   {
 	  int max =all.get(0).getData1();
 			for (Data data : all) {
-				if(data.getData1() > max)
+				if(data.getData1() >= max)
 					max=data.getData1();
 			}
 			return max;

@@ -16,6 +16,9 @@ public interface PersonProperties extends PropertyAccess<Person> {
 	   
 	 
 	  ValueProvider<Person, String> fullName();
+	  ValueProvider<Person, String> firstName();
+	  ValueProvider<Person, String> lastName();
+	  ValueProvider<Person, String> occupation();
 	  ValueProvider<Person, String> email();
 	  ValueProvider<Person, String> university();
 	  ValueProvider<Person, Date> registerDate();

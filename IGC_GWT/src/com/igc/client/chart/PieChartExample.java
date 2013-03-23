@@ -1,6 +1,8 @@
 package com.igc.client.chart;
 
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.editor.client.Editor.Path;
@@ -10,9 +12,14 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.chart.client.chart.Chart;
 import com.sencha.gxt.chart.client.chart.Legend;
+import com.sencha.gxt.chart.client.chart.event.SeriesItemOutEvent;
+import com.sencha.gxt.chart.client.chart.event.SeriesItemOutEvent.SeriesItemOutHandler;
+import com.sencha.gxt.chart.client.chart.event.SeriesItemOverEvent;
+import com.sencha.gxt.chart.client.chart.event.SeriesItemOverEvent.SeriesItemOverHandler;
 import com.sencha.gxt.chart.client.chart.series.PieSeries;
 import com.sencha.gxt.chart.client.chart.series.Series.LabelPosition;
 import com.sencha.gxt.chart.client.chart.series.SeriesLabelConfig;
+import com.sencha.gxt.chart.client.chart.series.SeriesToolTipConfig;
 import com.sencha.gxt.chart.client.draw.Gradient;
 import com.sencha.gxt.chart.client.draw.RGB;
 import com.sencha.gxt.chart.client.draw.Stop;
@@ -38,6 +45,7 @@ import com.sencha.gxt.widget.core.client.event.CollapseEvent;
 import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.event.ExpandEvent;
 import com.sencha.gxt.widget.core.client.event.ExpandEvent.ExpandHandler;
+import com.sencha.gxt.widget.core.client.tips.ToolTipConfig;
 import com.sencha.gxt.widget.core.client.toolbar.ToolBar;
 
 
@@ -58,8 +66,10 @@ public class PieChartExample implements IsWidget {
 		  private static final DataPropertyAccess dataAccess = GWT.create(DataPropertyAccess.class);
 		 
 		  public Widget asWidget() {
+			  
+			 List<Data> allsex=allData.getSex();
 		    final ListStore<Data> store = new ListStore<Data>(dataAccess.nameKey());
-		    store.addAll(allData.getSex());
+		    store.addAll(allsex);
 		 
 		    final Chart<Data> chart = new Chart<Data>();
 		    chart.setDefaultInsets(50);
@@ -73,37 +83,28 @@ public class PieChartExample implements IsWidget {
 		 
 		    Gradient slice2 = new Gradient("slice2", 45);
 		    slice2.addStop(new Stop(0, new RGB(17, 95, 166)));
-		    slice2.addStop(new Stop(100, new RGB(12, 69, 120)));
+		    slice2.addStop(new Stop(0, new RGB(255, 136, 9)));
 		    chart.addGradient(slice2);
 		 
-		   /* Gradient slice3 = new Gradient("slice3", 45);
-		    slice3.addStop(new Stop(0, new RGB(166, 17, 32)));
-		    slice3.addStop(new Stop(100, new RGB(120, 12, 23)));
-		    chart.addGradient(slice3);
-		 
-		    Gradient slice4 = new Gradient("slice4", 45);
-		    slice4.addStop(new Stop(0, new RGB(255, 136, 9)));
-		    slice4.addStop(new Stop(100, new RGB(213, 110, 0)));
-		    chart.addGradient(slice4);
-		 
-		    Gradient slice5 = new Gradient("slice5", 45);
-		    slice5.addStop(new Stop(0, new RGB(255, 209, 62)));
-		    slice5.addStop(new Stop(100, new RGB(255, 197, 11)));
-		    chart.addGradient(slice5);
-		 
-		    Gradient slice6 = new Gradient("slice6", 45);
-		    slice6.addStop(new Stop(0, new RGB(166, 17, 135)));
-		    slice6.addStop(new Stop(100, new RGB(120, 12, 97)));
-		    chart.addGradient(slice6);
-		 */
+		    
+		
 		    final PieSeries<Data> series = new PieSeries<Data>();
 		    series.setAngleField(dataAccess.data1());
 		    series.addColor(slice1);
 		    series.addColor(slice2);
-		   /* series.addColor(slice3);
-		    series.addColor(slice4);
-		    series.addColor(slice5);
-		    series.addColor(slice6);*/
+		    series.addSeriesItemOverHandler(new SeriesItemOverHandler<Data>() {
+
+				@Override
+				public void onSeriesOverItem(SeriesItemOverEvent<Data> event) {
+					// TODO Auto-generated method stub
+					SeriesToolTipConfig<Data> tooltip=new SeriesToolTipConfig<Data>();
+					
+					tooltip.setTitleText(event.getItem().getName());
+					tooltip.setBodyText(event.getValueProvider().getValue(event.getItem()).toString());
+					series.setToolTipConfig(tooltip);
+				}
+			});
+	
 		    TextSprite textConfig = new TextSprite();
 		    textConfig.setFont("Arial");
 		    textConfig.setTextBaseline(TextBaseline.MIDDLE);
@@ -174,7 +175,7 @@ public class PieChartExample implements IsWidget {
 		    panel.getElement().getStyle().setMargin(10, Unit.PX);
 		    panel.setCollapsible(true);
 		    panel.setHeadingText("Pie Chart");
-		    panel.setPixelSize(620, 500);
+	    panel.setPixelSize(520, 400);
 		    panel.setBodyBorder(true);
 		     
 		    final Resizable resize = new Resizable(panel, Dir.E, Dir.SE, Dir.S);

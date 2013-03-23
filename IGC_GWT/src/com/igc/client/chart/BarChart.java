@@ -40,7 +40,7 @@ import com.sencha.gxt.widget.core.client.event.ExpandEvent.ExpandHandler;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.toolbar.ToolBar;
  
-public class BarChart implements IsWidget, EntryPoint {
+public class BarChart implements IsWidget {
 	
 	private AllData allData=new AllData();
  
@@ -80,13 +80,13 @@ public class BarChart implements IsWidget, EntryPoint {
     axis.setTitleConfig(title);
     axis.setDisplayGrid(true);
     axis.setMinimum(0);
-    axis.setMaximum(maxData(allprog)+10);
+    axis.setMaximum((maxData(allprog))+10);
     chart.addAxis(axis);
  
     CategoryAxis<Data, String> catAxis = new CategoryAxis<Data, String>();
     catAxis.setPosition(Position.LEFT);
     catAxis.setField(dataAccess.name());
-    title = new TextSprite("Month of the Year");
+    title = new TextSprite("Programming Language");
     title.setFontSize(18);
     catAxis.setTitleConfig(title);
     chart.addAxis(catAxis);
@@ -126,7 +126,7 @@ public class BarChart implements IsWidget, EntryPoint {
     panel.getElement().getStyle().setMargin(10, Unit.PX);
     panel.setCollapsible(true);
     panel.setHeadingText("Bar Chart");
-    panel.setPixelSize(620, 500);
+    panel.setPixelSize(500, 400);
     panel.setBodyBorder(true);
      
     final Resizable resize = new Resizable(panel, Dir.E, Dir.SE, Dir.S);
@@ -169,9 +169,5 @@ public class BarChart implements IsWidget, EntryPoint {
 			return max;
   }
 
-@Override
-public void onModuleLoad() {
-	// TODO Auto-generated method stub
-	
-}
+
 }

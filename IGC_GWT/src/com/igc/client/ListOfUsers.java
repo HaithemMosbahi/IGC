@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.cell.client.DateCell;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Label;
@@ -64,17 +66,43 @@ public class ListOfUsers implements IsWidget {
 
 				@Override
 				public void onSuccess(List<Person> result) {
-					  final ColumnConfig<Person, String> fullnameCol = new ColumnConfig<Person, String>(props.fullName(), 100, "Name");
-				      final ColumnConfig<Person, String> emailCol = new ColumnConfig<Person, String>(props.email(), 100, "Email");
-				      final ColumnConfig<Person, Date> registerdateCol = new ColumnConfig<Person, Date>(props.registerDate(), 100, "Last update");
+					  final ColumnConfig<Person, String> firstn = new ColumnConfig<Person, String>(props.firstName(), 110, "First name");
+					  final ColumnConfig<Person, String> lastn = new ColumnConfig<Person, String>(props.lastName(), 110, "Last name");
+				      final ColumnConfig<Person, String> emailCol = new ColumnConfig<Person, String>(props.email(), 150, "Email");
+				      final ColumnConfig<Person, Date> registerdateCol = new ColumnConfig<Person, Date>(props.registerDate(), 150, "Registration date");
 				      final ColumnConfig<Person, String> universityCol = new ColumnConfig<Person, String>(props.university(), 100, "Faculty/University");
-				      final ColumnConfig<Person, String> gwtCol = new ColumnConfig<Person, String>(props.gwtUser(), 100, "GWT User");
+				      final ColumnConfig<Person, String> occupCol = new ColumnConfig<Person, String>(props.occupation(), 100, "Occupation");
+				      final ColumnConfig<Person, String> gwtCol = new ColumnConfig<Person, String>(props.gwtUser(), 80, "GWT User");
 				      registerdateCol.setCell(new DateCell(com.google.gwt.i18n.client.DateTimeFormat.getFormat("MM/dd/yyyy HH:mm:ss")));
-				   java.util.List<ColumnConfig<Person, ?>> l = new ArrayList<ColumnConfig<Person, ?>>();
-				      l.add(fullnameCol);
+				      gwtCol.setCell(new AbstractCell<String>() {
+				  
+						@Override
+						public void render(
+								com.google.gwt.cell.client.Cell.Context context,
+								String value, SafeHtmlBuilder sb) {
+							if(value != null)
+							{
+								
+						
+							  String style = "style='color: " + (value.equals("No") ? "red" : "green") + "'";
+					          
+					            sb.appendHtmlConstant("<span " + style + ">" + value + "</span>");
+					          }
+							else
+							{
+								 sb.appendHtmlConstant("<span color:red> -- </span>");
+							}
+						}
+						
+				        });
+				      
+				      java.util.List<ColumnConfig<Person, ?>> l = new ArrayList<ColumnConfig<Person, ?>>();
+				      l.add(firstn);
+				      l.add(lastn);
 				      l.add(emailCol);
 				      l.add(registerdateCol);
 				      l.add(universityCol);
+				      l.add(occupCol);
 				      l.add(gwtCol);
 				    
 				      ColumnModel<Person> cm = new ColumnModel<Person>(l);
@@ -84,7 +112,7 @@ public class ListOfUsers implements IsWidget {
 				   
 				      root.setHeadingText("Basic Grid");
 				      
-				      root.setPixelSize(700, 400);
+				      root.setPixelSize(820, 350);
 				      root.addStyleName("margin-10");
 				       
 				      ToolButton info = new ToolButton(ToolButton.QUESTION);
@@ -96,7 +124,7 @@ public class ListOfUsers implements IsWidget {
 				      new Resizable(root, Dir.E, Dir.SE, Dir.S);
 				 
 				      final Grid<Person> grid = new Grid<Person>(store, cm);
-				      grid.getView().setAutoExpandColumn(fullnameCol);
+				     
 				      grid.getView().setStripeRows(true);
 				      grid.getView().setColumnLines(true);
 				      grid.setBorders(false);
@@ -147,7 +175,7 @@ public class ListOfUsers implements IsWidget {
 				        }
 				      });
 				      toolBar.add(type);
-				      Draggable d=new Draggable(grid);
+				 
 				      VerticalLayoutContainer con = new VerticalLayoutContainer();
 				      root.setWidget(con);
 				 

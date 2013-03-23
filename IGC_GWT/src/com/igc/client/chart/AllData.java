@@ -22,14 +22,6 @@ public class AllData {
 	// call the asynchronous methode
 	CrudServiceAsync crudService=GWT.create(CrudService.class);
 	
-	// Dynamic list 
-	private List<Data> allProgLang=new ArrayList<Data>();
-	
-	// Dynamic list 
-     private List<Data> allMusic;
-     
-  // Dynamic list 
- 	private List<Data> Sex;
  	
  	private List<Person> allPerson=new ArrayList<Person>();
 	
@@ -64,7 +56,7 @@ public class AllData {
 		data.add(new Data("Pop", 90));
 		data.add(new Data("Blues", 30));
 		data.add(new Data("Rap", 40));
-		data.add(new Data("jaz", 10));
+		data.add(new Data("Jazz", 10));
 		return data;
 	}
 	
@@ -72,7 +64,7 @@ public class AllData {
 
 	public List<Data> getallMusic()
 	{
-		allMusic=new ArrayList<Data>();
+		final List<Data> allMusic=new ArrayList<Data>();
 		allMusic.add(new Data("Rock",0));
 		allMusic.add(new Data("Classical",0));
 		allMusic.add(new Data("Reggae",0));
@@ -84,9 +76,10 @@ public class AllData {
 		allMusic.add(new Data("Pop",0));
 		allMusic.add(new Data("Blues",0));
 		allMusic.add(new Data("Rap",0));
-		allMusic.add(new Data("jazz",0));
+		allMusic.add(new Data("Jazz",0));
 		
 		crudService.finddAll(new AsyncCallback<List<Person>>() {
+			
 			
 			@Override
 			public void onSuccess(List<Person> result) {
@@ -98,24 +91,19 @@ public class AllData {
 						{ List<String> music=person.getFavMusic();
 						for (String genre : music) {
 							int i=isExist(genre, allMusic); 
-							allMusic.get(i).setData1(allMusic.get(i).getData1()+1);
+							allMusic.get(i).setData1((allMusic.get(i).getData1())+1);
 						}
 						}
 					}
 				}
-				else
-				{
-					allMusic=AllData.allMusic();
-				}
-				
 				
 			}
 			
 			@Override
 			public void onFailure(Throwable caught) {
 				// if connection to dataStore failed return static list
+				//List<Data> allMusic=AllData.allMusic();
 			
-				allMusic=AllData.allMusic();
 				
 			}
 		});
@@ -125,7 +113,7 @@ public class AllData {
 	
 	public List<Data> getSex()
 	{
-		Sex=new ArrayList<Data>();
+		final List<Data> Sex=new ArrayList<Data>();
 		Sex.add(new Data("Boys",0));
 		Sex.add(new Data("Girls",0));
 		crudService.finddAll(new AsyncCallback<List<Person>>() {
@@ -133,7 +121,7 @@ public class AllData {
 			@Override
 			public void onFailure(Throwable caught) {
 				// if connection to dataStore failed return static list
-				 Sex=AllData.sex();
+				//List<Data> Sex=AllData.sex();
 			}
 
 			@Override
@@ -147,9 +135,9 @@ public class AllData {
 							 {
 								 Sex.get(0).setData1(Sex.get(0).getData1()+1);
 							 }
-							 else
+							 if(person.getSex().equals("Femme"))
 							 {
-								 Sex.get(1).setData1(Sex.get(1). getData1()+1);
+								 Sex.get(1).setData1((Sex.get(1). getData1())+1);
 							 }     
 							
 						}
@@ -159,7 +147,7 @@ public class AllData {
 				}
 				else
 				{
-					Sex=AllData.sex();
+					List<Data> Sex=AllData.sex();
 				}
 				
 				
@@ -172,7 +160,7 @@ public class AllData {
 	
 	public List<Data> getProgLang()
 	{
-		allProgLang=new ArrayList<Data>();
+		final List<Data> allProgLang=new ArrayList<Data>();
 		allProgLang.add(new Data("Java",0));
 		allProgLang.add(new Data("Ruby",0));
 		allProgLang.add(new Data("Python",0));
@@ -193,7 +181,7 @@ public class AllData {
 				
 				// if connection to dataStore failed return static list
 				
-				allProgLang=AllData.allProg();
+				//List<Data> allProgLang=AllData.allProg();
 				
 			}
 
@@ -206,15 +194,15 @@ public class AllData {
 						{ List<String> prog=person.getFavProgLang();
 						for (String genre : prog) {
 							int i=isExist(genre,allProgLang); 
-							allProgLang.get(i).setData1(allProgLang.get(i).getData1()+1);
+							allProgLang.get(i).setData1((allProgLang.get(i).getData1())+1);
 						}
 						}
 					}
 				}
-				else
+				/*else
 				{
-					allProgLang=AllData.allProg();
-				}
+					List<Data> allProgLang=AllData.allProg();
+				}*/
 				
 				
 			}
@@ -230,6 +218,18 @@ public class AllData {
 				return i;
 			}
 		return -1;
+	}
+	
+	public static final List<Data> getGWTlist()
+	{
+		List<Data> gwtList=new ArrayList<Data>();
+		gwtList.add(new Data("Business application",80));
+		gwtList.add(new Data("Content-rich Website",12));
+		gwtList.add(new Data("Games",1));
+		gwtList.add(new Data("Portlet",1));
+		gwtList.add(new Data("Other",7));
+		
+		return gwtList;
 	}
 		
 	

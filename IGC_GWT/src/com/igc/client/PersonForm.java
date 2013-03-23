@@ -129,7 +129,7 @@ public class PersonForm implements IsWidget {
 	    final TextField company = new TextField();
 	    company.setWidth(cw);
 	   
-	    con.add(new FieldLabel(company, "Unersity"), new HtmlData(".company"));
+	    con.add(new FieldLabel(company, "University"), new HtmlData(".company"));
 	 
 	    TextField email = new TextField();
 	    email.setWidth(cw);
@@ -137,9 +137,9 @@ public class PersonForm implements IsWidget {
 	    email.setReadOnly(true);
 	    con.add(new FieldLabel(email, "Email"), new HtmlData(".email"));
 	 
-	    final DateField birthday = new DateField();
-	    birthday.setWidth(cw);
-	    con.add(new FieldLabel(birthday, "Birthday"), new HtmlData(".birthday"));
+	    final TextField occup = new TextField();
+	    occup.setWidth(cw);
+	    con.add(new FieldLabel(occup, "Occupation (student,engineer,.."), new HtmlData(".occup"));
 	 
 	    final Radio radio1 = new Radio();
 	    radio1.setBoxLabel("Homme");
@@ -151,7 +151,7 @@ public class PersonForm implements IsWidget {
 	    hp.add(radio1);
 	    hp.add(radio2);
 	 
-	    con.add(new FieldLabel(hp, "Sexe"), new HtmlData(".user"));
+	    con.add(new FieldLabel(hp, "Sex"), new HtmlData(".user"));
 	 
 	    ToggleGroup group = new ToggleGroup();
 	    group.add(radio1);
@@ -347,7 +347,7 @@ public class PersonForm implements IsWidget {
 			   }
 			   if(radio2.getValue())
 				   getPeson().setSex("Femme");
-			   getPeson().setBirthdayDate(birthday.getCurrentValue());
+			   getPeson().setOccupation(occup.getCurrentValue());
 			   getPeson().setComment(desription.getCurrentValue());
 			   getPeson().setFavMusic(music);
 			   getPeson().setFavProgLang(prog);
@@ -385,7 +385,7 @@ public class PersonForm implements IsWidget {
 			        box.show();
 			        firstName.setText("");
 					lastName.setText("");
-					birthday.setText("");
+					occup.setText("");
 					radio1.setValue(false);
 					radio2.setValue(false);
 					radio3.setValue(false);
@@ -423,7 +423,7 @@ public class PersonForm implements IsWidget {
 				// TODO Auto-generated method stub
 				firstName.setText("");
 				lastName.setText("");
-				birthday.setText("");
+				occup.setText("");
 				radio1.setValue(false);
 				radio2.setValue(false);
 				radio3.setValue(false);
@@ -466,7 +466,7 @@ public class PersonForm implements IsWidget {
 	    return [ '<table width=100% cellpadding=0 cellspacing=0>',
 	        '<tr><td class=fn width=50%></td><td class=ln width=50%></td></tr>',
 	        '<tr><td class=company></td><td class=email></td></tr>',
-	        '<tr><td class=birthday></td><td class=user></td></tr>',
+	        '<tr><td class=occup></td><td class=user></td></tr>',
 	        '<tr><center><td class=music></td></center><td class=prog></td></tr>',
 	       '<tr><td class=gwt></td><td class=comment></td></tr>',
 	         '</table>'
@@ -477,171 +477,3 @@ public class PersonForm implements IsWidget {
 	
 }
 	
-	
-	
-	/*
-	private VerticalPanel vp;
-	
-	@Override
-	public Widget asWidget() {
-		if(vp==null)
-		{
-			vp= new VerticalPanel();
-			createForme1();
-		}
-		
-		return vp;
-	}
-
-	private void createForme1() {
-	FramedPanel panel=new FramedPanel();
-	panel.setHeadingText("new user");
-	panel.setWidth(350);
-	panel.setBodyStyle("background : none; padding : 5px");
-	
-	VerticalLayoutContainer p=new VerticalLayoutContainer();
-	panel.add(p);
-	final TextField firstName=new TextField();
-	firstName.setAllowBlank(false);
-	firstName.setEmptyText("Enter your first name...");
-	firstName.addValueChangeHandler(new ValueChangeHandler<String>() {
-
-		@Override
-		public void onValueChange(ValueChangeEvent<String> event) {
-			Info.display("Value changed","First name changed to :"+event.getValue() == null ? "blank" : event.getValue());
-			
-		}
-	});
-	p.add(new FieldLabel(firstName, "First Name"), new VerticalLayoutData(1,-1));
-	
-	final TextField lasttName=new TextField();
-	lasttName.setAllowBlank(false);
-	lasttName.setEmptyText("Enter your last name...");
-	p.add(new FieldLabel(lasttName, "Last Name"), new VerticalLayoutData(1,-1));
-	
-	NumberField<Integer> Age=new NumberField<Integer>(new IntegerPropertyEditor());
-	Age.addParseErrorHandler(new ParseErrorHandler() {
-		
-		@Override
-		public void onParseError(ParseErrorEvent event) {
-			Info.display("Parse Error", event.getErrorValue() + " could not be parsed as a number");
-			
-		}
-	});
-	Age.setAllowBlank(false);
-	p.add(new FieldLabel(Age, "Age"), new VerticalLayoutData(1,-1));
-	
-	
-	 TextField email = new TextField();
-	    email.setAllowBlank(false);
-	    p.add(new FieldLabel(email, "Email"), new VerticalLayoutData(1, -1));
-	 
-	    PasswordField password = new PasswordField();
-	    p.add(new FieldLabel(password, "Password"), new VerticalLayoutData(1, -1));
-	
-	    DateField date=new DateField();
-	    
-	    date.addParseErrorHandler(new ParseErrorHandler() {
-			
-			@Override
-			public void onParseError(ParseErrorEvent event) {
-				Info.display("Parse Error", event.getErrorValue() + " could not be parsed as a date");
-				
-			}
-		});
-	    //date.addValidator((Validator<Date>) new MaxDateValidator(new Date()));
-	    p.add(new FieldLabel(date, "Birthday"), new VerticalLayoutData(1, -1));
-	   
-	    
-	  //handler for music changed
-	    ValueChangeHandler<Boolean> musicHandler=new ValueChangeHandler<Boolean>() {
-
-			@Override
-			public void onValueChange(ValueChangeEvent<Boolean> event) {
-				CheckBox check=(CheckBox) event.getSource();
-				Info.display("Music Changed ", check.getBoxLabel()+ " "+(event.getValue() ? "selected":"not selected"));				
-			}
-		};
-	    com.sencha.gxt.widget.core.client.form.CheckBox check1=new com.sencha.gxt.widget.core.client.form.CheckBox();
-	    check1.setBoxLabel("Rock");
-	    CheckBox check2=new CheckBox();
-	    check1.addValueChangeHandler(musicHandler);
-	    check2.setBoxLabel("Classical");
-	    check2.addValueChangeHandler(musicHandler);
-         CheckBox check3=new CheckBox();
-	     check3.setBoxLabel("Blues");
-	     check3.addValueChangeHandler(musicHandler);
-         CheckBox check4=new CheckBox();
-	     check4.setBoxLabel("Rap");
-	     check4.addValueChangeHandler(musicHandler);
-	     CheckBox check5=new CheckBox();
-	     check5.setBoxLabel("Pop");
-	     check5.addValueChangeHandler(musicHandler);
-	     CheckBox check6=new CheckBox();
-	     check6.setBoxLabel("Occidental");
-	     check6.addValueChangeHandler(musicHandler);
-	    HorizontalPanel hp=new HorizontalPanel();
-	    HorizontalPanel hp2=new HorizontalPanel();
-	    hp.add(check1);hp.add(check2);hp.add(check3);hp2.add(check4);
-	    hp2.add(check5);hp2.add(check6);
-	    p.add(new FieldLabel(hp, "your favourite"),new VerticalLayoutData(1,-1));
-	    p.add(new FieldLabel(hp2,"Music"),new VerticalLayoutData(1,-1));
-	  
-	 
-	    hp = new HorizontalPanel();
-	 
-	 
-	    hp=new HorizontalPanel();
-	
-	TextButton sendBtn=new TextButton("save");
-	sendBtn.addSelectHandler(new SelectHandler() {
-		
-		@Override
-		public void onSelect(SelectEvent event) {
-		Info.display("send buuton","here i am");
-			
-		}
-	});
-	    panel.addButton(sendBtn);
-
-	    panel.addButton(new TextButton("Cancel"));
-	
-	 
-	  
-	    
-	    vp.add(panel);
-	    
-		
-	}
-	private void createForm2() {
-	    FramedPanel form2 = new FramedPanel();
-	    form2.setHeadingText("Simple Form with FieldSets");
-	    form2.setWidth(350);
-	 
-	    FieldSet fieldSet = new FieldSet();
-	    fieldSet.setHeadingText("User Information");
-	    fieldSet.setCollapsible(true);
-	    form2.add(fieldSet);
-	 
-	    VerticalLayoutContainer p = new VerticalLayoutContainer();
-	    fieldSet.add(p);
-	 
-	    TextField firstName = new TextField();
-	    firstName.setAllowBlank(false);
-	    p.add(new FieldLabel(firstName, "First Name"), new VerticalLayoutData(1, -1));
-	 
-	    TextField lastName = new TextField();
-	    lastName.setAllowBlank(false);
-	    p.add(new FieldLabel(lastName, "Last Name"), new VerticalLayoutData(1, -1));
-	 
-	    TextField email = new TextField();
-	    email.setAllowBlank(false);
-	    p.add(new FieldLabel(email, "Email"), new VerticalLayoutData(1, -1));
-	 
-	    form2.addButton(new TextButton("Save"));
-	    form2.addButton(new TextButton("Cancel"));
-	 
-	    vp.add(form2);
-	  }
-
-}*/
