@@ -55,11 +55,7 @@ public class CrudServiceImpl extends RemoteServiceServlet
       for (Key<Person> key : allKeys) {
 		allPerson.add(ofy().load().key(key).get());
 	}
-     System.out.println("fuckkkkkkkkkk "+allPerson.size());
-     Query<Person> q = ofy().load().type(Person.class).filter("sex", "Homme");
-     for (Person car: q) {
-         System.out.println("fuckkkkkkkkkkkk "+car.getFirstName());
-     }
+     
 
 		return allPerson;
 	}
