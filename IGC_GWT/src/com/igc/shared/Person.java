@@ -1,6 +1,7 @@
 package com.igc.shared;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import com.googlecode.objectify.annotation.Entity;
 
 
 @Entity
-public class Person implements IsSerializable {
+public class Person implements Serializable {
 	
 
 	
@@ -38,7 +39,7 @@ public class Person implements IsSerializable {
 	
 	
 	
-	// Constructer 
+
 	
 	public Person() {
 		super();

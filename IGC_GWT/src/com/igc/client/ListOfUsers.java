@@ -66,9 +66,9 @@ public class ListOfUsers implements IsWidget {
 
 				@Override
 				public void onSuccess(List<Person> result) {
-					  final ColumnConfig<Person, String> firstn = new ColumnConfig<Person, String>(props.firstName(), 110, "First name");
-					  final ColumnConfig<Person, String> lastn = new ColumnConfig<Person, String>(props.lastName(), 110, "Last name");
-				      final ColumnConfig<Person, String> emailCol = new ColumnConfig<Person, String>(props.email(), 150, "Email");
+					  final ColumnConfig<Person, String> firstn = new ColumnConfig<Person, String>(props.firstName(), 100, "First name");
+					  final ColumnConfig<Person, String> lastn = new ColumnConfig<Person, String>(props.lastName(), 100, "Last name");
+				      final ColumnConfig<Person, String> emailCol = new ColumnConfig<Person, String>(props.email(), 170, "Email");
 				      final ColumnConfig<Person, Date> registerdateCol = new ColumnConfig<Person, Date>(props.registerDate(), 150, "Registration date");
 				      final ColumnConfig<Person, String> universityCol = new ColumnConfig<Person, String>(props.university(), 100, "Faculty/University");
 				      final ColumnConfig<Person, String> occupCol = new ColumnConfig<Person, String>(props.occupation(), 100, "Occupation");
@@ -104,13 +104,15 @@ public class ListOfUsers implements IsWidget {
 				      l.add(universityCol);
 				      l.add(occupCol);
 				      l.add(gwtCol);
+				      
 				    
 				      ColumnModel<Person> cm = new ColumnModel<Person>(l);
-				 
+				     
 				      ListStore<Person> store = new ListStore<Person>(props.key());
 				      store.addAll(result);
+				     
 				   
-				      root.setHeadingText("Basic Grid");
+				      root.setHeadingText("List of users");
 				      
 				      root.setPixelSize(820, 350);
 				      root.addStyleName("margin-10");
@@ -125,9 +127,11 @@ public class ListOfUsers implements IsWidget {
 				 
 				      final Grid<Person> grid = new Grid<Person>(store, cm);
 				     
+				   
 				      grid.getView().setStripeRows(true);
 				      grid.getView().setColumnLines(true);
 				      grid.setBorders(false);
+				      
 				 
 				      grid.setColumnReordering(true);
 				      grid.setStateful(true);

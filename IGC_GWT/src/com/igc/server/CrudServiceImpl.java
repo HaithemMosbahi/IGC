@@ -3,11 +3,14 @@ package com.igc.server;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
+import com.googlecode.objectify.cmd.Query;
 import com.igc.client.CrudService;
+import com.igc.shared.Data;
 import com.igc.shared.Person;
 
 
@@ -20,7 +23,6 @@ public class CrudServiceImpl extends RemoteServiceServlet
 	
 	private List<Person> allPerson;
 	
-
 	public List<Person> getAllPerson() {
 		return allPerson;
 	}
@@ -53,10 +55,14 @@ public class CrudServiceImpl extends RemoteServiceServlet
       for (Key<Person> key : allKeys) {
 		allPerson.add(ofy().load().key(key).get());
 	}
-     System.out.println(allPerson.size());
-		
+     System.out.println("fuckkkkkkkkkk "+allPerson.size());
+     Query<Person> q = ofy().load().type(Person.class).filter("sex", "Homme");
+     for (Person car: q) {
+         System.out.println("fuckkkkkkkkkkkk "+car.getFirstName());
+     }
 
 		return allPerson;
 	}
+
 
 }

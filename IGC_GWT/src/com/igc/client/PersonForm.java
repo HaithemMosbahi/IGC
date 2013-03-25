@@ -23,10 +23,12 @@ import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.igc.shared.Person;
 import com.sencha.gxt.core.client.Style.HideMode;
+import com.sencha.gxt.core.client.Style.LayoutRegion;
 import com.sencha.gxt.core.client.util.DateWrapper;
 import com.sencha.gxt.core.client.util.ToggleGroup;
 import com.sencha.gxt.widget.core.client.FramedPanel;
@@ -34,9 +36,13 @@ import com.sencha.gxt.widget.core.client.box.AlertMessageBox;
 import com.sencha.gxt.widget.core.client.box.AutoProgressMessageBox;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.AbstractHtmlLayoutContainer.HtmlData;
+import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.SimpleContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.event.BeforeExpandEvent;
+import com.sencha.gxt.widget.core.client.event.BeforeExpandEvent.BeforeExpandHandler;
 import com.sencha.gxt.widget.core.client.event.ParseErrorEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.ParseErrorEvent.ParseErrorHandler;
@@ -105,7 +111,7 @@ public class PersonForm implements IsWidget {
 	 
 	  public void createColumnForm() {
 	    FramedPanel panel = new FramedPanel();
-	    panel.setHeadingText("Form Example");
+	    panel.setHeadingText("New User");
 	    panel.setWidth(COLUMN_FORM_WIDTH);
 
 	    HtmlLayoutContainer con = new HtmlLayoutContainer(getTableMarkup());
@@ -139,7 +145,7 @@ public class PersonForm implements IsWidget {
 	 
 	    final TextField occup = new TextField();
 	    occup.setWidth(cw);
-	    con.add(new FieldLabel(occup, "Occupation (student,engineer,.."), new HtmlData(".occup"));
+	    con.add(new FieldLabel(occup, "Occupation (student,engineer,...)"), new HtmlData(".occup"));
 	 
 	    final Radio radio1 = new Radio();
 	    radio1.setBoxLabel("Homme");
@@ -242,6 +248,7 @@ public class PersonForm implements IsWidget {
 	    fieldSet2.add(v1);
 	    fieldSet2.collapse();
 	    con.add(new FieldLabel(fieldSet2,"Music"), new HtmlData(".music"));
+
 	 
 	 // Prog langage :
 	 final CheckBox ch1=new CheckBox();

@@ -21,6 +21,16 @@
     <url-pattern>/igc_gwt/login</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>getService</servlet-name>
+    <servlet-class>com.igc.server.ChartServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>getService</servlet-name>
+    <url-pattern>/igc_gwt/get</url-pattern>
+  </servlet-mapping>
+  
   <servlet> 
     <servlet-name>crudService</servlet-name>
     <servlet-class>com.igc.server.CrudServiceImpl</servlet-class>
