@@ -63,11 +63,14 @@ import com.sencha.gxt.chart.client.draw.RGB;
 import com.sencha.gxt.chart.client.draw.Stop;
 import com.sencha.gxt.chart.client.draw.sprite.Sprite;
 import com.sencha.gxt.chart.client.draw.sprite.TextSprite;
+import com.sencha.gxt.chart.client.draw.sprite.TextSprite.TextAnchor;
+import com.sencha.gxt.chart.client.draw.sprite.TextSprite.TextBaseline;
 import com.sencha.gxt.core.client.Style.LayoutRegion;
 import com.sencha.gxt.core.client.Style.Side;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.data.shared.LabelProvider;
 import com.sencha.gxt.data.shared.ListStore;
+import com.sencha.gxt.data.shared.StringLabelProvider;
 import com.sencha.gxt.fx.client.Draggable;
 import com.sencha.gxt.widget.core.client.Resizable.Dir;
 import com.sencha.gxt.widget.core.client.button.TextButton;
@@ -818,16 +821,28 @@ public class IGC_GWT implements EntryPoint {
 				chart.addGradient(slice1);
 
 				Gradient slice2 = new Gradient("slice2", 45);
-				slice2.addStop(new Stop(0, new RGB(17, 95, 166)));
-				slice2.addStop(new Stop(100, new RGB(12, 69, 120)));
-				chart.addGradient(slice2);
+			    slice2.addStop(new Stop(0, new RGB(255, 136, 9)));
+			    slice2.addStop(new Stop(100, new RGB(213, 110, 0)));
+			    chart.addGradient(slice2);
 
 				final PieSeries<Data> series = new PieSeries<Data>();
 				series.setAngleField(dataAccess.data1());
+			      TextSprite textConfig = new TextSprite();
+			           textConfig.setFont("Arial");
+			             textConfig.setTextBaseline(TextBaseline.MIDDLE);
+			             textConfig.setFontSize(18);
+			           textConfig.setTextAnchor(TextAnchor.MIDDLE);
+			             textConfig.setZIndex(15);
+			              SeriesLabelConfig<Data> labelConfig = new SeriesLabelConfig<Data>();
+			              labelConfig.setSpriteConfig(textConfig);
+			              labelConfig.setLabelPosition(LabelPosition.START);
+			             labelConfig.setValueProvider(dataAccess.name(), new StringLabelProvider<String>());
+			             series.setLabelConfig(labelConfig);
+			             series.setHighlighting(true);
+				
 				series.addColor(slice1);
 				series.addColor(slice2);
-				series.setLabelConfig(null);
-				series.setHighlighting(true);
+	
 
 				series.addSeriesItemOverHandler(new SeriesItemOverHandler<Data>() {
 
@@ -835,8 +850,7 @@ public class IGC_GWT implements EntryPoint {
 					public void onSeriesOverItem(SeriesItemOverEvent<Data> event) {
 						SeriesToolTipConfig<Data> tool = new SeriesToolTipConfig<Data>();
 						tool.setTitleText(event.getItem().getName());
-						tool.setBodyText(event.getValueProvider()
-								.getValue(event.getItem()).toString());
+						tool.setBodyText(event.getValueProvider().getValue(event.getItem()).toString());
 						series.setToolTipConfig(tool);
 
 					}
@@ -899,7 +913,7 @@ public class IGC_GWT implements EntryPoint {
 
 				panel.getElement().getStyle().setMargin(10, Unit.PX);
 				panel.setCollapsible(true);
-				panel.setHeadingText("Boys vs Girls ?");
+				panel.setHeadingText("Boys vs Girls");
 				panel.setPixelSize(520, 400);
 				panel.setBodyBorder(true);
 
