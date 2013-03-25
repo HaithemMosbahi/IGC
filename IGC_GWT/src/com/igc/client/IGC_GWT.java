@@ -167,8 +167,8 @@ public class IGC_GWT implements EntryPoint {
 			
 
 			@Override
-			public void onClick(ClickEvent event) {
-				vp22.add(imgAjax);
+			public void onClick(ClickEvent event) 
+			{
 				loginService.login(
 						com.google.gwt.core.client.GWT.getHostPageBaseURL(),
 						new AsyncCallback<Person>() {
