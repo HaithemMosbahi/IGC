@@ -5,3 +5,8 @@ Official GWT application of Insat Google Club.
 The application is deployed on Google App Engine platform. Thus, application's data is stored in google DataStore. Also, entities are mapped using Objectify framework.
 
  [Live Demo](http://igc-gwt.appspot.com/)
+
+ Application Home Page 
+
+ ![alt text](demo.png)
+
